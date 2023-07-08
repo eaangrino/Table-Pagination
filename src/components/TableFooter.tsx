@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { IData } from '../interface/interface';
 
 const TableFooter = ({
   range,
@@ -6,10 +7,10 @@ const TableFooter = ({
   page,
   slice,
 }: {
-  range: any[];
+  range: number[];
   setPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
-  slice: any[];
+  slice: IData[];
 }) => {
   const goToPreviousPage = () => {
     if (page > 1) {
@@ -18,7 +19,7 @@ const TableFooter = ({
   };
 
   const goToNextPage = () => {
-    if (page < range.length - 1) {
+    if (page < range.length) {
       setPage(page + 1);
     }
   };
@@ -33,9 +34,9 @@ const TableFooter = ({
         Previous
       </button>
       <span>
-        Page {page} of {range.length - 1}
+        Page {page} of {range.length}
       </span>
-      <button onClick={goToNextPage} disabled={page === range.length - 1}>
+      <button onClick={goToNextPage} disabled={page === range.length}>
         Next
       </button>
     </div>

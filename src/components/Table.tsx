@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { IData } from '../interface/interface';
 import useTable from './hook/useTable';
 import TableFooter from './TableFooter';
 
 const Table = ({
   data,
   rowsPerPage,
-  children,
 }: {
-  data: any[];
+  data: IData[];
   rowsPerPage: number;
-  children: React.ReactNode;
 }) => {
   const [page, setPage] = useState<number>(1);
   const { slice, range } = useTable(data, page, rowsPerPage);
