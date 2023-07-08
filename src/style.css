@@ -3,6 +3,16 @@ p {
   font-family: Lato;
 }
 
+.table-container {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

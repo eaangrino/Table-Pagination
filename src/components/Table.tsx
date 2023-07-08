@@ -16,9 +16,9 @@ const Table = ({
   return (
     <>
       <TableFooter range={range} slice={slice} setPage={setPage} page={page} />
-      <table className={``}>
-        <thead className={``}>
-          <tr>
+      <table className={`table-container`}>
+        <thead>
+          <tr className={``}>
             <th className={``}>Name</th>
             <th className={``}>Age</th>
             <th className={``}>Genre</th>

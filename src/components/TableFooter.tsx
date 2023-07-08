@@ -9,7 +9,7 @@ const TableFooter = ({
   range: any[];
   setPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
-  slice: number;
+  slice: any[];
 }) => {
   const goToPreviousPage = () => {
     if (page > 1) {
