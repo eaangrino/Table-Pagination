@@ -6,23 +6,38 @@ const TableFooter = ({
   page,
   slice,
 }: {
-  range: any;
-  setPage: any;
+  range: any[];
+  setPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
-  slice: any;
+  slice: number;
 }) => {
+  const goToPreviousPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (page < range.length - 1) {
+      setPage(page + 1);
+    }
+  };
   useEffect(() => {
     if (slice.length < 1 && page !== 1) {
       setPage(page - 1);
     }
   }, [slice, page, setPage]);
   return (
-    <div className={''}>
-      {range.map((item: any, index: number) => (
-        <button key={index} className={``} onClick={() => setPage(item)}>
-          {item}
-        </button>
-      ))}
+    <div className={'pagination'}>
+      <button onClick={goToPreviousPage} disabled={page === 1}>
+        Previous
+      </button>
+      <span>
+        Page {page} of {range.length - 1}
+      </span>
+      <button onClick={goToNextPage} disabled={page === range.length - 1}>
+        Next
+      </button>
     </div>
   );
 };

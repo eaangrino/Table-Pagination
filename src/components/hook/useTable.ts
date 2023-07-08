@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const calculateRange = (data: any[], rowsPerPage: number) => {
   const range = [];
@@ -10,7 +10,7 @@ const calculateRange = (data: any[], rowsPerPage: number) => {
   return range;
 };
 
-const sliceData = (data: any, page: number, rowsPerPage: number) => {
+const sliceData = (data: any[], page: number, rowsPerPage: number) => {
   return data.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 };
 
