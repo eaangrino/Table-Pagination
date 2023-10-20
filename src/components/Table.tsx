@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IData } from '../interface/interface';
-import useTable from './hook/useTable';
+import useTable from './../hook/useTable';
 import TableFooter from './TableFooter';
 
 const Table = ({
