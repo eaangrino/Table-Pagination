@@ -2,11 +2,50 @@ import * as React from 'react';
 import Table from './components/Table';
 import './style.css';
 import { data } from './data';
+import { useForm } from 'react-hook-form';
+import Input from './components/Input';
 
 export default function App() {
+  const {
+    register,
+    control,
+    formState: { errors },
+  } = useForm({ mode: 'onTouched' });
+
+  const [searchTerm, setSearchTerm] = React.useState<any>('');
+
   return (
     <div>
-      <Table data={data} rowsPerPage={10} />
+      <Input
+        type={'text'}
+        setSearchTerm={setSearchTerm}
+        control={control}
+        id={'search'}
+        label={'Search'}
+      />
+      <Table
+        data={data
+          .filter((val: any) => {
+            if (
+              val?.name
+                ?.toLocaleLowerCase()
+                ?.includes(searchTerm?.toLocaleLowerCase()) ||
+              `${val?.age}`
+                ?.toLocaleLowerCase()
+                ?.includes(searchTerm?.toLocaleLowerCase())
+            ) {
+              return true;
+            } else if (
+              [undefined, null, ''].includes(searchTerm?.toLocaleLowerCase())
+            ) {
+              return true;
+            }
+          })
+          .map((item: any) => {
+            return item;
+          })}
+        rowsPerPage={10}
+      />
     </div>
   );
 }
