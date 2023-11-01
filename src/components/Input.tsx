@@ -9,13 +9,13 @@ interface IInput {
   setSearchTerm?: any;
 }
 
-const Input: React.FC<IInput> = ({
+export default function Input({
   id,
   type,
   label,
   control,
   setSearchTerm,
-}: IInput) => {
+}: IInput) {
   return (
     <Controller
       control={control}
@@ -38,6 +38,4 @@ const Input: React.FC<IInput> = ({
       }}
     />
   );
-};
-
-export default Input;
+}

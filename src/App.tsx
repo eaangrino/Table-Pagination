@@ -14,6 +14,11 @@ export default function App() {
   } = useForm({ mode: 'onTouched' });
 
   const [searchTerm, setSearchTerm] = React.useState<any>('');
+  const [dataTemp, setDataTemp] = React.useState<IData[]>(data);
+
+  const handleSwitchChange = (item: IData) => {
+    console.log(item);
+  };
 
   return (
     <div>
@@ -25,7 +30,8 @@ export default function App() {
         label={'Search'}
       />
       <Table
-        data={data
+        onChange={handleSwitchChange}
+        data={dataTemp
           .filter((val: IData) => {
             if (
               val?.name

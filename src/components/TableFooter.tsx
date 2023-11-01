@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { IData } from '../interface/interface';
 
-const TableFooter = ({
+export default function TableFooter({
   range,
   setPage,
   page,
@@ -11,7 +11,7 @@ const TableFooter = ({
   setPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
   slice: IData[];
-}) => {
+}) {
   const goToPreviousPage = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -41,6 +41,4 @@ const TableFooter = ({
       </button>
     </div>
   );
-};
-
-export default TableFooter;
+}

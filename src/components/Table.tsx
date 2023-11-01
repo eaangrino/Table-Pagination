@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { IData } from '../interface/interface';
 import useTable from './../hook/useTable';
+import Switch from './Switch';
 import TableFooter from './TableFooter';
 
-const Table = ({
+export default function Table({
   data,
   rowsPerPage,
+  onChange,
 }: {
   data: IData[];
   rowsPerPage: number;
-}) => {
+  onChange: any;
+}) {
   const [page, setPage] = useState<number>(1);
   const { slice, range } = useTable(data, page, rowsPerPage);
   return (
@@ -21,6 +24,7 @@ const Table = ({
             <th className={``}>Name</th>
             <th className={``}>Age</th>
             <th className={``}>Genre</th>
+            <th className={``}>Checked</th>
           </tr>
         </thead>
         <tbody>
@@ -29,12 +33,13 @@ const Table = ({
               <td className={``}>{item.name}</td>
               <td className={``}>{item.age}</td>
               <td className={``}>{item.genre}</td>
+              <td className={``}>
+                <Switch item={item} onChange={onChange} />
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </>
   );
-};
-
-export default Table;
+}
