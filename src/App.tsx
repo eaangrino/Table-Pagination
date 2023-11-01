@@ -4,6 +4,7 @@ import './style.css';
 import { data } from './data';
 import { useForm } from 'react-hook-form';
 import Input from './components/Input';
+import { IData } from './interface/interface';
 
 export default function App() {
   const {
@@ -25,7 +26,7 @@ export default function App() {
       />
       <Table
         data={data
-          .filter((val: any) => {
+          .filter((val: IData) => {
             if (
               val?.name
                 ?.toLocaleLowerCase()
@@ -41,10 +42,10 @@ export default function App() {
               return true;
             }
           })
-          .map((item: any) => {
+          .map((item: IData) => {
             return item;
           })}
-        rowsPerPage={10}
+        rowsPerPage={15}
       />
     </div>
   );

@@ -1,4 +1,6 @@
-export const data = [
+import { IData } from './interface/interface';
+
+export const data: IData[] = [
   { name: 'John', age: 25, genre: 'male' },
   { name: 'Emma', age: 30, genre: 'female' },
   { name: 'Michael', age: 42, genre: 'male' },
